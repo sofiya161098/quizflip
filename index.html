@@ -63,38 +63,9 @@
 
     /* ──────────── Constants ──────────── */
     const STORAGE_KEY = 'quizflip:decks:v2';
+    const OFFICIAL_DECKS_URL = 'decks.json';
     const BOX_INTERVALS = [0, 1*864e5, 3*864e5, 7*864e5, 14*864e5, 30*864e5];
     const BOX_LABELS = ['New', '1d', '3d', '7d', '14d', '30d'];
-
-    const SAMPLE_DECKS = [
-      {
-        id: 'sample-verbs', title: 'Common English Verbs', description: 'The 10 most used verbs',
-        color: 'indigo', termLang: 'en-US', defLang: 'ru-RU',
-        cards: [
-          { id: 'v1', term: 'to be', definition: 'быть' },
-          { id: 'v2', term: 'to have', definition: 'иметь' },
-          { id: 'v3', term: 'to do', definition: 'делать' },
-          { id: 'v4', term: 'to go', definition: 'идти, ехать' },
-          { id: 'v5', term: 'to make', definition: 'делать, создавать' },
-          { id: 'v6', term: 'to take', definition: 'брать' },
-          { id: 'v7', term: 'to give', definition: 'давать' },
-          { id: 'v8', term: 'to know', definition: 'знать' },
-          { id: 'v9', term: 'to think', definition: 'думать' },
-          { id: 'v10', term: 'to say', definition: 'говорить, сказать' },
-        ],
-      },
-      {
-        id: 'sample-travel', title: 'Travel Phrases', description: 'Useful for going abroad',
-        color: 'coral', termLang: 'en-US', defLang: 'ru-RU',
-        cards: [
-          { id: 't1', term: 'Where is the bathroom?', definition: 'Где туалет?' },
-          { id: 't2', term: 'How much does it cost?', definition: 'Сколько это стоит?' },
-          { id: 't3', term: 'Can you help me?', definition: 'Можете мне помочь?' },
-          { id: 't4', term: "I don't speak English well", definition: 'Я плохо говорю по-английски' },
-          { id: 't5', term: 'Thank you very much', definition: 'Большое спасибо' },
-        ],
-      },
-    ];
 
     const COLOR_THEMES = {
       indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', solid: '#4255FF' },
@@ -207,6 +178,56 @@
     };
     const persistDecks = (decks) => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(decks)); } catch (e) { console.error(e); } };
 
+    async function fetchOfficialDecks() {
+      try {
+        const res = await fetch(`${OFFICIAL_DECKS_URL}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      } catch (e) {
+        console.warn('Could not fetch official decks:', e);
+        return null;
+      }
+    }
+
+    function mergeOfficialDecks(localDecks, officialDecks) {
+      const localById = new Map((localDecks || []).map((d) => [d.id, d]));
+      const officialIds = new Set(officialDecks.map((d) => d.id));
+      const result = [];
+
+      for (const remote of officialDecks) {
+        const local = localById.get(remote.id);
+        const remoteVersion = remote.version ?? 0;
+        const localVersion = local?.version ?? 0;
+
+        if (!local) {
+          result.push(migrateDeck({ ...remote, isOfficial: true }));
+        } else if (remoteVersion > localVersion) {
+          const localCardById = new Map(local.cards.map((c) => [c.id, c]));
+          const mergedCards = remote.cards.map((c) => {
+            const lc = localCardById.get(c.id);
+            return {
+              ...c,
+              box: lc?.box ?? 0,
+              lastReview: lc?.lastReview ?? 0,
+              streak: lc?.streak ?? 0,
+            };
+          });
+          result.push(migrateDeck({ ...remote, isOfficial: true, cards: mergedCards }));
+        } else {
+          result.push({ ...local, isOfficial: true, version: localVersion });
+        }
+      }
+
+      for (const local of (localDecks || [])) {
+        if (!officialIds.has(local.id) && !local.isOfficial) {
+          result.push(local);
+        }
+      }
+
+      return result;
+    }
+
     /* ──────────── App ──────────── */
     function App() {
       const [view, setView] = useState('home');
@@ -218,9 +239,15 @@
       const currentDeck = useMemo(() => decks.find((d) => d.id === currentDeckId), [decks, currentDeckId]);
 
       useEffect(() => {
-        const stored = loadDecks();
-        if (stored && stored.length) setDecks(stored);
-        else { const seeded = SAMPLE_DECKS.map(migrateDeck); setDecks(seeded); persistDecks(seeded); }
+        const stored = loadDecks() || [];
+        setDecks(stored);
+        (async () => {
+          const official = await fetchOfficialDecks();
+          if (!official) return;
+          const merged = mergeOfficialDecks(stored, official);
+          setDecks(merged);
+          persistDecks(merged);
+        })();
       }, []);
 
       const save = (next) => { setDecks(next); persistDecks(next); };
@@ -356,12 +383,16 @@
               <button onClick={(e) => { e.stopPropagation(); onExport(); }} className="p-2 hover:bg-stone-100 rounded-full" title="Export as JSON">
                 <Download size={15} className="text-stone-500" />
               </button>
-              <button onClick={(e) => { e.stopPropagation(); onEdit(); }} className="p-2 hover:bg-stone-100 rounded-full" title="Edit">
-                <Edit2 size={15} className="text-stone-500" />
-              </button>
-              <button onClick={(e) => { e.stopPropagation(); onDelete(); }} className="p-2 hover:bg-rose-50 rounded-full" title="Delete">
-                <Trash2 size={15} className="text-rose-500" />
-              </button>
+              {!deck.isOfficial && (
+                <>
+                  <button onClick={(e) => { e.stopPropagation(); onEdit(); }} className="p-2 hover:bg-stone-100 rounded-full" title="Edit">
+                    <Edit2 size={15} className="text-stone-500" />
+                  </button>
+                  <button onClick={(e) => { e.stopPropagation(); onDelete(); }} className="p-2 hover:bg-rose-50 rounded-full" title="Delete">
+                    <Trash2 size={15} className="text-rose-500" />
+                  </button>
+                </>
+              )}
             </div>
           </div>
           <h3 className="font-display text-3xl font-bold text-stone-900 mb-1 leading-tight">{deck.title || 'Untitled deck'}</h3>
@@ -421,9 +452,11 @@
                 <button onClick={onReset} className="flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 hover:border-rose-500 hover:text-rose-600 font-medium text-sm transition-colors">
                   <RotateCw size={14} /> Reset progress
                 </button>
-                <button onClick={onEdit} className="flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 hover:border-stone-900 font-medium text-sm">
-                  <Edit2 size={14} /> Edit
-                </button>
+                {!deck.isOfficial && (
+                  <button onClick={onEdit} className="flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 hover:border-stone-900 font-medium text-sm">
+                    <Edit2 size={14} /> Edit
+                  </button>
+                )}
               </div>
             </div>
           </div>

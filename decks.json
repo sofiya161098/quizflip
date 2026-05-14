@@ -1,42 +1,5 @@
 [
   {
-    "id": "sample-verbs",
-    "version": 1,
-    "title": "Common English Verbs",
-    "description": "The 10 most used verbs",
-    "color": "indigo",
-    "termLang": "en-US",
-    "defLang": "ru-RU",
-    "cards": [
-      { "id": "v1",  "term": "to be",    "definition": "быть" },
-      { "id": "v2",  "term": "to have",  "definition": "иметь" },
-      { "id": "v3",  "term": "to do",    "definition": "делать" },
-      { "id": "v4",  "term": "to go",    "definition": "идти, ехать" },
-      { "id": "v5",  "term": "to make",  "definition": "делать, создавать" },
-      { "id": "v6",  "term": "to take",  "definition": "брать" },
-      { "id": "v7",  "term": "to give",  "definition": "давать" },
-      { "id": "v8",  "term": "to know",  "definition": "знать" },
-      { "id": "v9",  "term": "to think", "definition": "думать" },
-      { "id": "v10", "term": "to say",   "definition": "говорить, сказать" }
-    ]
-  },
-  {
-    "id": "sample-travel",
-    "version": 1,
-    "title": "Travel Phrases",
-    "description": "Useful for going abroad",
-    "color": "coral",
-    "termLang": "en-US",
-    "defLang": "ru-RU",
-    "cards": [
-      { "id": "t1", "term": "Where is the bathroom?",    "definition": "Где туалет?" },
-      { "id": "t2", "term": "How much does it cost?",    "definition": "Сколько это стоит?" },
-      { "id": "t3", "term": "Can you help me?",          "definition": "Можете мне помочь?" },
-      { "id": "t4", "term": "I don't speak English well","definition": "Я плохо говорю по-английски" },
-      { "id": "t5", "term": "Thank you very much",       "definition": "Большое спасибо" }
-    ]
-  },
-  {
     "id": "eu-renewables",
     "version": 1,
     "title": "EU Renewables Overtake Fossil Fuels",

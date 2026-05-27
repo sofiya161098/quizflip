@@ -1,0 +1,443 @@
+{
+  "id": "eco-meeting",
+  "version": 2,
+  "title": "Eco Meeting / Sustainability",
+  "description": "Лексика про совещания, экологию, отходы и гибридный формат работы",
+  "color": "#4CAF50",
+  "termLang": "en",
+  "defLang": "ru",
+  "cards": [
+    {
+      "id": "em1",
+      "term": "fertilizers",
+      "definition": "/ˈfɜːtəlaɪzərz/ — удобрения",
+      "icon": "🌱",
+      "examples": [
+        { "en": "These fertilizers can contaminate the groundwater.", "ru": "Эти удобрения могут загрязнять грунтовые воды." }
+      ]
+    },
+    {
+      "id": "em2",
+      "term": "emit",
+      "definition": "/ɪˈmɪt/ — выделять, испускать, выбрасывать (о газах, излучении)",
+      "icon": "💨",
+      "examples": [
+        { "en": "Diesel engines emit a lot of harmful gases.", "ru": "Дизельные двигатели выбрасывают много вредных газов." }
+      ]
+    },
+    {
+      "id": "em3",
+      "term": "depleted",
+      "definition": "/dɪˈpliːtɪd/ — истощённый, исчерпанный",
+      "icon": "📉",
+      "examples": [
+        { "en": "Our natural resources are being rapidly depleted.", "ru": "Наши природные ресурсы быстро истощаются." }
+      ]
+    },
+    {
+      "id": "em4",
+      "term": "in order to",
+      "definition": "/ɪn ˈɔːdə tuː/ — чтобы, для того чтобы",
+      "icon": "🎯",
+      "examples": [
+        { "en": "We changed the supplier in order to reduce costs.", "ru": "Мы сменили поставщика, чтобы сократить расходы." }
+      ]
+    },
+    {
+      "id": "em5",
+      "term": "to cut down on",
+      "definition": "/tə kʌt daʊn ɒn/ — сократить, уменьшить расход (чего-либо)",
+      "icon": "✂️",
+      "examples": [
+        { "en": "We need to cut down on single-use plastic at the office.", "ru": "Нам нужно сократить использование одноразового пластика в офисе." }
+      ]
+    },
+    {
+      "id": "em6",
+      "term": "survey",
+      "definition": "/ˈsɜːveɪ/ — опрос, исследование, обзор",
+      "icon": "📊",
+      "examples": [
+        { "en": "A recent survey showed that 70% of staff support the change.", "ru": "Недавний опрос показал, что 70% сотрудников поддерживают изменение." }
+      ]
+    },
+    {
+      "id": "em7",
+      "term": "reveals",
+      "definition": "/rɪˈviːlz/ — показывает, выявляет, обнаруживает",
+      "icon": "🔍",
+      "examples": [
+        { "en": "The report reveals serious problems with our waste handling.", "ru": "Отчёт выявляет серьёзные проблемы с обращением с отходами." }
+      ]
+    },
+    {
+      "id": "em8",
+      "term": "takeout meals",
+      "definition": "/ˈteɪkaʊt miːlz/ — еда навынос",
+      "icon": "🥡",
+      "examples": [
+        { "en": "Most colleagues order takeout meals every day.", "ru": "Большинство коллег каждый день заказывают еду навынос." }
+      ]
+    },
+    {
+      "id": "em9",
+      "term": "plastic cutlery",
+      "definition": "/ˈplæstɪk ˈkʌtləri/ — пластиковые столовые приборы",
+      "icon": "🍴",
+      "examples": [
+        { "en": "Please refuse plastic cutlery when you order food.", "ru": "Пожалуйста, отказывайтесь от пластиковых столовых приборов при заказе еды." }
+      ]
+    },
+    {
+      "id": "em10",
+      "term": "thus",
+      "definition": "/ðʌs/ — таким образом, следовательно",
+      "icon": "🔗",
+      "examples": [
+        { "en": "Sales doubled this year; thus, we can invest in new equipment.", "ru": "Продажи удвоились в этом году; таким образом, мы можем вложиться в новое оборудование." }
+      ]
+    },
+    {
+      "id": "em11",
+      "term": "unwanted debris",
+      "definition": "/ʌnˈwɒntɪd ˈdebriː/ — ненужный мусор, отходы",
+      "icon": "🗑️",
+      "examples": [
+        { "en": "Unwanted debris ends up in rivers and oceans.", "ru": "Ненужный мусор оказывается в реках и океанах." }
+      ]
+    },
+    {
+      "id": "em12",
+      "term": "hinders",
+      "definition": "/ˈhɪndəz/ — препятствует, мешает, затрудняет",
+      "icon": "🚧",
+      "examples": [
+        { "en": "Lack of recycling bins hinders our sustainability efforts.", "ru": "Отсутствие контейнеров для переработки мешает нашим усилиям по устойчивому развитию." }
+      ]
+    },
+    {
+      "id": "em13",
+      "term": "creatures",
+      "definition": "/ˈkriːtʃəz/ — существа, живые организмы",
+      "icon": "🐢",
+      "examples": [
+        { "en": "Plastic waste harms sea creatures.", "ru": "Пластиковый мусор вредит морским существам." }
+      ]
+    },
+    {
+      "id": "em14",
+      "term": "consequently",
+      "definition": "/ˈkɒnsɪkwəntli/ — следовательно, в результате",
+      "icon": "👉",
+      "examples": [
+        { "en": "He missed the deadline; consequently, the project was delayed.", "ru": "Он пропустил дедлайн; следовательно, проект был задержан." }
+      ]
+    },
+    {
+      "id": "em15",
+      "term": "as a norm",
+      "definition": "/æz ə nɔːm/ — как правило, в норме, по умолчанию",
+      "icon": "📏",
+      "examples": [
+        { "en": "We accept paperless invoices as a norm now.", "ru": "Теперь мы принимаем электронные счета как норму." }
+      ]
+    },
+    {
+      "id": "em16",
+      "term": "printouts",
+      "definition": "/ˈprɪntaʊts/ — распечатки",
+      "icon": "📄",
+      "examples": [
+        { "en": "Avoid unnecessary printouts to save paper.", "ru": "Избегайте лишних распечаток, чтобы экономить бумагу." }
+      ]
+    },
+    {
+      "id": "em17",
+      "term": "training on",
+      "definition": "/ˈtreɪnɪŋ ɒn/ — обучение по (теме, чему-либо)",
+      "icon": "🎓",
+      "examples": [
+        { "en": "All staff must complete training on waste sorting.", "ru": "Все сотрудники должны пройти обучение по сортировке отходов." }
+      ]
+    },
+    {
+      "id": "em18",
+      "term": "handling",
+      "definition": "/ˈhændlɪŋ/ — обращение (с чем-либо), обработка",
+      "icon": "🤲",
+      "examples": [
+        { "en": "Safe handling of chemicals is mandatory in our lab.", "ru": "Безопасное обращение с химикатами обязательно в нашей лаборатории." }
+      ]
+    },
+    {
+      "id": "em19",
+      "term": "disposal of production",
+      "definition": "/dɪˈspəʊzl əv prəˈdʌkʃn/ — утилизация производственных отходов",
+      "icon": "🏭",
+      "examples": [
+        { "en": "Disposal of production waste must follow strict rules.", "ru": "Утилизация производственных отходов должна соответствовать строгим правилам." }
+      ]
+    },
+    {
+      "id": "em20",
+      "term": "definitely",
+      "definition": "/ˈdefɪnətli/ — определённо, безусловно",
+      "icon": "✅",
+      "examples": [
+        { "en": "We will definitely meet the new sustainability target.", "ru": "Мы безусловно достигнем новой цели по устойчивому развитию." }
+      ]
+    },
+    {
+      "id": "em21",
+      "term": "hazardous",
+      "definition": "/ˈhæzədəs/ — опасный, вредный (для здоровья, среды)",
+      "icon": "☢️",
+      "examples": [
+        { "en": "Batteries are classified as hazardous waste.", "ru": "Батарейки относятся к опасным отходам." }
+      ]
+    },
+    {
+      "id": "em22",
+      "term": "encourage",
+      "definition": "/ɪnˈkʌrɪdʒ/ — поощрять, поддерживать, стимулировать",
+      "icon": "👏",
+      "examples": [
+        { "en": "We encourage employees to use public transport.", "ru": "Мы поощряем сотрудников пользоваться общественным транспортом." }
+      ]
+    },
+    {
+      "id": "em23",
+      "term": "naturally",
+      "definition": "/ˈnætʃrəli/ — естественно, само собой, конечно",
+      "icon": "🌿",
+      "examples": [
+        { "en": "Naturally, going green saves us money in the long run.", "ru": "Естественно, переход на «зелёные» решения экономит нам деньги в долгосрочной перспективе." }
+      ]
+    },
+    {
+      "id": "em24",
+      "term": "mindful work habits",
+      "definition": "/ˈmaɪndfʊl wɜːk ˈhæbɪts/ — осознанные рабочие привычки",
+      "icon": "🧘",
+      "examples": [
+        { "en": "Mindful work habits help reduce our daily waste.", "ru": "Осознанные рабочие привычки помогают сократить ежедневные отходы." }
+      ]
+    },
+    {
+      "id": "em25",
+      "term": "feasible",
+      "definition": "/ˈfiːzəbl/ — осуществимый, выполнимый, реальный",
+      "icon": "🛠️",
+      "examples": [
+        { "en": "Switching to electric vehicles is feasible within two years.", "ru": "Переход на электромобили реален в течение двух лет." }
+      ]
+    },
+    {
+      "id": "em26",
+      "term": "lead to",
+      "definition": "/liːd tuː/ — приводить к (чему-либо)",
+      "icon": "🏁",
+      "examples": [
+        { "en": "Small changes can lead to big savings.", "ru": "Небольшие изменения могут привести к большой экономии." }
+      ]
+    },
+    {
+      "id": "em27",
+      "term": "Besides",
+      "definition": "/bɪˈsaɪdz/ — кроме того, помимо этого",
+      "icon": "➕",
+      "examples": [
+        { "en": "Besides cutting costs, the new system reduces emissions.", "ru": "Кроме сокращения затрат, новая система снижает выбросы." }
+      ]
+    },
+    {
+      "id": "em28",
+      "term": "undoubtedly",
+      "definition": "/ʌnˈdaʊtɪdli/ — несомненно, без сомнения",
+      "icon": "💯",
+      "examples": [
+        { "en": "This will undoubtedly improve our company's image.", "ru": "Это несомненно улучшит имидж нашей компании." }
+      ]
+    },
+    {
+      "id": "em29",
+      "term": "savings",
+      "definition": "/ˈseɪvɪŋz/ — экономия, сбережения",
+      "icon": "💰",
+      "examples": [
+        { "en": "The new lighting brought significant savings on electricity.", "ru": "Новое освещение принесло значительную экономию на электричестве." }
+      ]
+    },
+    {
+      "id": "em30",
+      "term": "guide us",
+      "definition": "/ɡaɪd ʌs/ — направлять нас, служить нам ориентиром",
+      "icon": "🧭",
+      "examples": [
+        { "en": "Customer feedback should guide us in this decision.", "ru": "Отзывы клиентов должны быть нашим ориентиром в этом решении." }
+      ]
+    },
+    {
+      "id": "em31",
+      "term": "hybrid work arrangement",
+      "definition": "/ˈhaɪbrɪd wɜːk əˈreɪndʒmənt/ — гибридный формат работы",
+      "icon": "💻",
+      "examples": [
+        { "en": "A hybrid work arrangement cuts commuting emissions.", "ru": "Гибридный формат работы сокращает выбросы от поездок на работу." }
+      ]
+    },
+    {
+      "id": "em32",
+      "term": "shall put to a vote",
+      "definition": "/ʃæl pʊt tə ə vəʊt/ — поставим на голосование",
+      "icon": "🗳️",
+      "examples": [
+        { "en": "We shall put this proposal to a vote at the next meeting.", "ru": "Мы поставим это предложение на голосование на следующем совещании." }
+      ]
+    },
+    {
+      "id": "em33",
+      "term": "reusable containers",
+      "definition": "/riːˈjuːzəbl kənˈteɪnəz/ — многоразовые контейнеры",
+      "icon": "♻️",
+      "examples": [
+        { "en": "Bring reusable containers to the canteen, please.", "ru": "Приносите многоразовые контейнеры в столовую, пожалуйста." }
+      ]
+    },
+    {
+      "id": "em34",
+      "term": "grocery items",
+      "definition": "/ˈɡrəʊsəri ˈaɪtəmz/ — продукты, бакалейные товары",
+      "icon": "🛒",
+      "examples": [
+        { "en": "We deliver grocery items in paper bags only.", "ru": "Мы доставляем продукты только в бумажных пакетах." }
+      ]
+    },
+    {
+      "id": "em35",
+      "term": "save on",
+      "definition": "/seɪv ɒn/ — экономить на (чём-либо)",
+      "icon": "💸",
+      "examples": [
+        { "en": "Working from home helps us save on transport costs.", "ru": "Работа из дома помогает экономить на транспортных расходах." }
+      ]
+    },
+    {
+      "id": "em36",
+      "term": "electric vehicles",
+      "definition": "/ɪˈlektrɪk ˈviːɪklz/ — электромобили",
+      "icon": "🚗",
+      "examples": [
+        { "en": "The company is switching its fleet to electric vehicles.", "ru": "Компания переводит автопарк на электромобили." }
+      ]
+    },
+    {
+      "id": "em37",
+      "term": "contribute to",
+      "definition": "/kənˈtrɪbjuːt tuː/ — способствовать, вносить вклад в",
+      "icon": "🤝",
+      "examples": [
+        { "en": "Recycling can contribute to a cleaner environment.", "ru": "Переработка может способствовать более чистой окружающей среде." }
+      ]
+    },
+    {
+      "id": "em38",
+      "term": "affordable method",
+      "definition": "/əˈfɔːdəbl ˈmeθəd/ — доступный (по цене) способ",
+      "icon": "💵",
+      "examples": [
+        { "en": "Composting is an affordable method of waste reduction.", "ru": "Компостирование — доступный способ сокращения отходов." }
+      ]
+    },
+    {
+      "id": "em39",
+      "term": "unanimously",
+      "definition": "/juːˈnænɪməsli/ — единогласно",
+      "icon": "🙋",
+      "examples": [
+        { "en": "The board unanimously approved the green policy.", "ru": "Совет единогласно одобрил «зелёную» политику." }
+      ]
+    },
+    {
+      "id": "em40",
+      "term": "surplus",
+      "definition": "/ˈsɜːpləs/ — излишек, избыток, профицит",
+      "icon": "📦",
+      "examples": [
+        { "en": "We donated our surplus food to a local shelter.", "ru": "Мы передали излишки еды в местный приют." }
+      ]
+    },
+    {
+      "id": "em41",
+      "term": "deal with",
+      "definition": "/diːl wɪð/ — иметь дело с, заниматься, решать (вопрос)",
+      "icon": "⚙️",
+      "examples": [
+        { "en": "We need a better way to deal with packaging waste.", "ru": "Нам нужен более эффективный способ решать проблему упаковочных отходов." }
+      ]
+    },
+    {
+      "id": "em42",
+      "term": "win-win",
+      "definition": "/wɪn wɪn/ — взаимовыгодный (вариант, ситуация)",
+      "icon": "🏆",
+      "examples": [
+        { "en": "This is a win-win for the planet and our budget.", "ru": "Это взаимовыгодный вариант — и для планеты, и для нашего бюджета." }
+      ]
+    },
+    {
+      "id": "em43",
+      "term": "edible",
+      "definition": "/ˈedəbl/ — съедобный",
+      "icon": "🍎",
+      "examples": [
+        { "en": "Tons of edible food are thrown away every day.", "ru": "Тонны съедобной еды выбрасывают каждый день." }
+      ]
+    },
+    {
+      "id": "em44",
+      "term": "ramped up",
+      "definition": "/ræmpt ʌp/ — увеличил(а), нарастил(а) (объём, темп)",
+      "icon": "📈",
+      "examples": [
+        { "en": "We ramped up production to meet the new demand.", "ru": "Мы увеличили производство, чтобы удовлетворить новый спрос." }
+      ]
+    },
+    {
+      "id": "em45",
+      "term": "backs up",
+      "definition": "/bæks ʌp/ — подтверждает, подкрепляет; делает резервную копию",
+      "icon": "📂",
+      "examples": [
+        { "en": "The new data backs up our recycling strategy.", "ru": "Новые данные подтверждают нашу стратегию переработки." }
+      ]
+    },
+    {
+      "id": "em46",
+      "term": "blew away",
+      "definition": "/bluː əˈweɪ/ — сдуло, унесло ветром; (перен.) сильно впечатлило",
+      "icon": "🌬️",
+      "examples": [
+        { "en": "Strong wind blew away all the papers from the desk.", "ru": "Сильный ветер сдул все бумаги со стола." }
+      ]
+    },
+    {
+      "id": "em47",
+      "term": "called off",
+      "definition": "/kɔːld ɒf/ — отменил(а), отозвал(а)",
+      "icon": "❌",
+      "examples": [
+        { "en": "The meeting was called off due to power outages.", "ru": "Встречу отменили из-за отключений электричества." }
+      ]
+    },
+    {
+      "id": "em48",
+      "term": "[am/is/are] leaning toward + [gerund]",
+      "definition": "/ˈliːnɪŋ təˈwɔːd/ — склоняюсь к (тому, чтобы делать что-то); скорее выберу...",
+      "icon": "🤔",
+      "examples": [
+        { "en": "I am leaning toward choosing the hybrid option.", "ru": "Я склоняюсь к тому, чтобы выбрать гибридный вариант." }
+      ]
+    }
+  ]
+}

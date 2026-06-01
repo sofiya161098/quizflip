@@ -69,7 +69,8 @@
       { "id": "age19", "term": "generation capacity",     "definition": "генерирующая мощность" },
       { "id": "age20", "term": "to spread across",        "definition": "распространяться по, охватывать" }
     ]
-  },{
+  },
+  {
   "id": "eco-meeting",
   "version": 2,
   "title": "Eco Meeting / Sustainability",
@@ -510,5 +511,6 @@
         { "en": "I am leaning toward choosing the hybrid option.", "ru": "Я склоняюсь к тому, чтобы выбрать гибридный вариант." }
       ]
     }
-  ]
-}
+    }
+]
+

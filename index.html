@@ -898,8 +898,8 @@
       const questions = useMemo(() => {
         const cards = shuffle(deck.cards);
         return cards.map((c) => {
-          const wrongs = shuffle(deck.cards.filter((x) => x.id !== c.id)).slice(0, 3).map((x) => x.definition);
-          return { card: c, options: shuffle([c.definition, ...wrongs]) };
+          const wrongs = shuffle(deck.cards.filter((x) => x.id !== c.id)).slice(0, 3).map((x) => stripIpa(x.definition));
+          return { card: c, options: shuffle([stripIpa(c.definition), ...wrongs]) };
         });
       }, [deck.cards]);
 
@@ -908,7 +908,7 @@
       const [answers, setAnswers] = useState([]);
       const [done, setDone] = useState(false);
       const q = questions[idx];
-      const correct = q?.card.definition;
+      const correct = q ? stripIpa(q.card.definition) : null;
 
       const pick = (opt) => {
         if (picked !== null) return;
@@ -1006,7 +1006,7 @@
         const tiles = [];
         sample.forEach((c) => {
           tiles.push({ tileId: 't_' + c.id, cardId: c.id, text: c.term, type: 'term' });
-          tiles.push({ tileId: 'd_' + c.id, cardId: c.id, text: c.definition, type: 'def' });
+          tiles.push({ tileId: 'd_' + c.id, cardId: c.id, text: stripIpa(c.definition), type: 'def' });
         });
         return shuffle(tiles);
       }, [sample]);
@@ -1105,7 +1105,4 @@
     }
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
-</body>
-</html>
+    

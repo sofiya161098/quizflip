@@ -510,7 +510,199 @@
       "examples": [
         { "en": "I am leaning toward choosing the hybrid option.", "ru": "Я склоняюсь к тому, чтобы выбрать гибридный вариант." }
       ]
-    }
+    },
+                      {
+                          "id":  "em49",
+                          "term":  "remarkable point",
+                          "definition":  "/rɪˈmɑːkəbl pɔɪnt/ — ценное замечание, важная мысль (вежливая похвала на совещании)",
+                          "icon":  "💡",
+                          "examples":  [
+                                           {
+                                               "en":  "That's a remarkable point — thanks for raising it.",
+                                               "ru":  "Это ценное замечание — спасибо, что подняли его."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em50",
+                          "term":  "mindful",
+                          "definition":  "/ˈmaɪndfʊl/ — внимательный, осознанный (к чему-либо, особенно к последствиям)",
+                          "icon":  "👁️",
+                          "examples":  [
+                                           {
+                                               "en":  "We encourage mindful use of electricity.",
+                                               "ru":  "Мы поощряем осознанное использование электричества."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em51",
+                          "term":  "to reduce costs",
+                          "definition":  "/tə rɪˈdjuːs kɒsts/ — снизить расходы, сократить затраты (более формально, чем cut down on)",
+                          "icon":  "🪙",
+                          "examples":  [
+                                           {
+                                               "en":  "New equipment will reduce costs in the long run.",
+                                               "ru":  "Новое оборудование снизит расходы в долгосрочной перспективе."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em52",
+                          "term":  "to dispose of",
+                          "definition":  "/tə dɪˈspəʊz əv/ — утилизировать, избавляться от (всегда с предлогом of)",
+                          "icon":  "🚮",
+                          "examples":  [
+                                           {
+                                               "en":  "You must not dispose of batteries with regular trash.",
+                                               "ru":  "Нельзя выбрасывать батарейки с обычным мусором."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em53",
+                          "term":  "to rescue",
+                          "definition":  "/tə ˈreskjuː/ — спасать, выручать (например, rescue food = собирать неиспользованную еду)",
+                          "icon":  "🆘",
+                          "examples":  [
+                                           {
+                                               "en":  "Volunteers rescue surplus food from supermarkets.",
+                                               "ru":  "Волонтёры спасают излишки еды из супермаркетов."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em54",
+                          "term":  "beneficial",
+                          "definition":  "/ˌbenɪˈfɪʃl/ — выгодный, полезный",
+                          "icon":  "🌟",
+                          "examples":  [
+                                           {
+                                               "en":  "Recycling is beneficial for both the planet and the budget.",
+                                               "ru":  "Переработка выгодна и для планеты, и для бюджета."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em55",
+                          "term":  "to conduct a study",
+                          "definition":  "/tə kənˈdʌkt ə ˈstʌdi/ — провести исследование",
+                          "icon":  "🔬",
+                          "examples":  [
+                                           {
+                                               "en":  "We conducted a study on our office waste.",
+                                               "ru":  "Мы провели исследование офисных отходов."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em56",
+                          "term":  "impact",
+                          "definition":  "/ˈɪmpækt/ — влияние, воздействие (сущ.)",
+                          "icon":  "💥",
+                          "examples":  [
+                                           {
+                                               "en":  "Plastic packaging has a huge impact on the environment.",
+                                               "ru":  "Пластиковая упаковка оказывает огромное влияние на окружающую среду."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em57",
+                          "term":  "to affect",
+                          "definition":  "/tə əˈfekt/ — влиять, оказывать воздействие (глагол, ср. impact = сущ.)",
+                          "icon":  "⚡",
+                          "examples":  [
+                                           {
+                                               "en":  "Our business processes affect the environment in many ways.",
+                                               "ru":  "Наши бизнес-процессы влияют на окружающую среду многими способами."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em58",
+                          "term":  "to find out",
+                          "definition":  "/tə faɪnd aʊt/ — выяснить, узнать, выявить",
+                          "icon":  "🕵️",
+                          "examples":  [
+                                           {
+                                               "en":  "We want to find out which materials we waste the most.",
+                                               "ru":  "Мы хотим выяснить, какие материалы мы тратим больше всего."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em59",
+                          "term":  "to intend",
+                          "definition":  "/tə ɪnˈtend/ — намереваться, планировать (intend + to + infinitive)",
+                          "icon":  "📌",
+                          "examples":  [
+                                           {
+                                               "en":  "We intend to install energy-efficient systems in all our facilities.",
+                                               "ru":  "Мы намерены установить энергоэффективные системы на всех наших объектах."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em60",
+                          "term":  "to reduce",
+                          "definition":  "/tə rɪˈdjuːs/ — уменьшать, сокращать",
+                          "icon":  "⬇️",
+                          "examples":  [
+                                           {
+                                               "en":  "We need to reduce paper consumption in the office.",
+                                               "ru":  "Нам нужно сократить потребление бумаги в офисе."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em61",
+                          "term":  "to decrease",
+                          "definition":  "/tə dɪˈkriːs/ — уменьшать(ся), снижать(ся) (близко к reduce, чуть формальнее)",
+                          "icon":  "🔽",
+                          "examples":  [
+                                           {
+                                               "en":  "Energy consumption decreased by 20% this year.",
+                                               "ru":  "Потребление энергии снизилось на 20% в этом году."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em62",
+                          "term":  "to decline",
+                          "definition":  "/tə dɪˈklaɪn/ — снижаться (постепенно, о тренде); также — отклонять (предложение)",
+                          "icon":  "↘️",
+                          "examples":  [
+                                           {
+                                               "en":  "Sales of single-use plastic are declining.",
+                                               "ru":  "Продажи одноразового пластика снижаются."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em63",
+                          "term":  "to increase",
+                          "definition":  "/tə ɪnˈkriːs/ — увеличивать(ся), расти",
+                          "icon":  "⬆️",
+                          "examples":  [
+                                           {
+                                               "en":  "Demand for electric vehicles is increasing rapidly.",
+                                               "ru":  "Спрос на электромобили быстро растёт."
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "em64",
+                          "term":  "to speed up",
+                          "definition":  "/tə spiːd ʌp/ — ускорять(ся)",
+                          "icon":  "⏩",
+                          "examples":  [
+                                           {
+                                               "en":  "We need to speed up the transition to renewable energy.",
+                                               "ru":  "Нам нужно ускорить переход на возобновляемые источники энергии."
+                                           }
+                                       ]
+                      }
   ]
 }
 ]

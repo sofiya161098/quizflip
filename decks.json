@@ -704,5 +704,268 @@
                                        ]
                       }
   ]
+},
+  {
+  "id": "dawdon-geothermal",
+  "version": 1,
+  "title": "Dawdon Mine — Geothermal Energy",
+  "description": "Слова и выражения из статьи AFP о геотермальном проекте на заброшенной угольной шахте Доудон",
+  "color": "#4CAF50",
+  "termLang": "en-US",
+  "defLang": "ru-RU",
+  "cards": [
+    {
+      "id": "dg1",
+      "term": "coalmine / colliery",
+      "definition": "/ˈkoʊlmaɪn/ /ˈkɑːliəri/ — угольная шахта (colliery — более формальный синоним)",
+      "icon": "⛏️",
+      "examples": [
+        { "en": "The colliery hauled coal until its closure in 1991.", "ru": "Шахта добывала уголь вплоть до закрытия в 1991 году." }
+      ]
+    },
+    {
+      "id": "dg2",
+      "term": "to abandon",
+      "definition": "/əˈbændən/ — забрасывать, покидать, оставлять",
+      "icon": "🏚️",
+      "examples": [
+        { "en": "The mine was abandoned three decades ago.", "ru": "Шахту забросили три десятилетия назад." }
+      ]
+    },
+    {
+      "id": "dg3",
+      "term": "to bring back to life",
+      "definition": "/brɪŋ bæk tə laɪf/ — вернуть к жизни, возродить",
+      "icon": "💫",
+      "examples": [
+        { "en": "The old mine is being brought back to life.", "ru": "Старую шахту возвращают к жизни." }
+      ]
+    },
+    {
+      "id": "dg4",
+      "term": "unlikely setting",
+      "definition": "/ʌnˈlaɪkli ˈsetɪŋ/ — неожиданное (маловероятное) место для чего-либо",
+      "icon": "🎭",
+      "examples": [
+        { "en": "It is an unlikely setting for a green revolution.", "ru": "Это неожиданное место для «зелёной» революции." }
+      ]
+    },
+    {
+      "id": "dg5",
+      "term": "carbon-intensive",
+      "definition": "/ˈkɑːrbən ɪnˈtensɪv/ — углеродоёмкий (с большими выбросами CO₂)",
+      "icon": "🏭",
+      "examples": [
+        { "en": "Coal is a carbon-intensive fuel.", "ru": "Уголь — углеродоёмкое топливо." }
+      ]
+    },
+    {
+      "id": "dg6",
+      "term": "to haul coal",
+      "definition": "/hɔːl koʊl/ — добывать, поднимать, перевозить уголь (тяжело тащить)",
+      "icon": "🚛",
+      "examples": [
+        { "en": "Miners hauled coal from deep underground.", "ru": "Шахтёры поднимали уголь из глубоких недр." }
+      ]
+    },
+    {
+      "id": "dg7",
+      "term": "to flood with water",
+      "definition": "/flʌd wɪð ˈwɔːtər/ — затоплять водой",
+      "icon": "🌊",
+      "examples": [
+        { "en": "The mine has long since flooded with water.", "ru": "Шахту уже давно затопило водой." }
+      ]
+    },
+    {
+      "id": "dg8",
+      "term": "geothermal energy",
+      "definition": "/ˌdʒiːoʊˈθɜːrml ˈenərdʒi/ — геотермальная энергия (тепло земли)",
+      "icon": "🌋",
+      "examples": [
+        { "en": "The water is heated by geothermal energy.", "ru": "Вода нагревается геотермальной энергией." }
+      ]
+    },
+    {
+      "id": "dg9",
+      "term": "to capture and harness",
+      "definition": "/ˈkæptʃər ənd ˈhɑːrnɪs/ — улавливать и использовать (ставить себе на службу)",
+      "icon": "🎣",
+      "examples": [
+        { "en": "Authorities want to capture and harness this green energy.", "ru": "Власти хотят уловить и использовать эту «зелёную» энергию." }
+      ]
+    },
+    {
+      "id": "dg10",
+      "term": "unlimited source",
+      "definition": "/ʌnˈlɪmɪtɪd sɔːrs/ — неограниченный источник",
+      "icon": "♾️",
+      "examples": [
+        { "en": "It is an unlimited source of energy.", "ru": "Это неограниченный источник энергии." }
+      ]
+    },
+    {
+      "id": "dg11",
+      "term": "windswept",
+      "definition": "/ˈwɪndswept/ — продуваемый ветрами, открытый ветрам",
+      "icon": "🌬️",
+      "examples": [
+        { "en": "The mine sits on the windswept northeast coast.", "ru": "Шахта стоит на продуваемом ветрами северо-восточном побережье." }
+      ]
+    },
+    {
+      "id": "dg12",
+      "term": "treatment plant",
+      "definition": "/ˈtriːtmənt plænt/ — очистная установка, станция водоочистки",
+      "icon": "🏗️",
+      "examples": [
+        { "en": "The treatment plant sucks up warm water from the mine.", "ru": "Очистная установка всасывает тёплую воду из шахты." }
+      ]
+    },
+    {
+      "id": "dg13",
+      "term": "to suck up",
+      "definition": "/sʌk ʌp/ — всасывать, засасывать",
+      "icon": "🪣",
+      "examples": [
+        { "en": "The pipes suck up a bathtub of water every two seconds.", "ru": "Трубы всасывают по целой ванне воды каждые две секунды." }
+      ]
+    },
+    {
+      "id": "dg14",
+      "term": "acidic and ferrous",
+      "definition": "/əˈsɪdɪk ənd ˈferəs/ — кислый и железистый (содержащий железо)",
+      "icon": "🧪",
+      "examples": [
+        { "en": "The plant treats highly acidic and ferrous water.", "ru": "Установка очищает сильнокислую и железистую воду." }
+      ]
+    },
+    {
+      "id": "dg15",
+      "term": "to prevent contamination",
+      "definition": "/prɪˈvent kənˌtæmɪˈneɪʃn/ — предотвращать загрязнение",
+      "icon": "🚱",
+      "examples": [
+        { "en": "Treatment prevents contamination of local beaches.", "ru": "Очистка предотвращает загрязнение местных пляжей." }
+      ]
+    },
+    {
+      "id": "dg16",
+      "term": "heat pump",
+      "definition": "/hiːt pʌmp/ — тепловой насос",
+      "icon": "🔥",
+      "examples": [
+        { "en": "A heat pump raises the water to 55–60 degrees.", "ru": "Тепловой насос доводит воду до 55–60 градусов." }
+      ]
+    },
+    {
+      "id": "dg17",
+      "term": "to power homes",
+      "definition": "/ˈpaʊər hoʊmz/ — снабжать дома энергией, отапливать дома",
+      "icon": "🏘️",
+      "examples": [
+        { "en": "The heat will eventually power local homes.", "ru": "Тепло в итоге будет обогревать местные дома." }
+      ]
+    },
+    {
+      "id": "dg18",
+      "term": "carbon neutrality",
+      "definition": "/ˈkɑːrbən nuːˈtræləti/ — углеродная нейтральность",
+      "icon": "⚖️",
+      "examples": [
+        { "en": "The UK aims to reach carbon neutrality by 2050.", "ru": "Великобритания стремится достичь углеродной нейтральности к 2050 году." }
+      ]
+    },
+    {
+      "id": "dg19",
+      "term": "to decarbonise",
+      "definition": "/diːˈkɑːrbənaɪz/ — декарбонизировать, снижать выбросы CO₂",
+      "icon": "🌍",
+      "examples": [
+        { "en": "We are decarbonising our electricity supply.", "ru": "Мы декарбонизируем электроснабжение." }
+      ]
+    },
+    {
+      "id": "dg20",
+      "term": "heavily dependent on",
+      "definition": "/ˈhevɪli dɪˈpendənt ɒn/ — сильно зависимый от",
+      "icon": "🔗",
+      "examples": [
+        { "en": "Britain is heavily dependent on natural gas.", "ru": "Британия сильно зависит от природного газа." }
+      ]
+    },
+    {
+      "id": "dg21",
+      "term": "a surge in prices",
+      "definition": "/sɜːrdʒ ɪn ˈpraɪsɪz/ — резкий скачок цен",
+      "icon": "📈",
+      "examples": [
+        { "en": "A surge in gas prices underlined the urgency.", "ru": "Скачок цен на газ подчеркнул срочность." }
+      ]
+    },
+    {
+      "id": "dg22",
+      "term": "to stoke",
+      "definition": "/stoʊk/ — разжигать, подстёгивать, подпитывать",
+      "icon": "🔥",
+      "examples": [
+        { "en": "The rise was stoked by economies reopening.", "ru": "Рост был подстёгнут возобновлением работы экономик." }
+      ]
+    },
+    {
+      "id": "dg23",
+      "term": "to spike",
+      "definition": "/spaɪk/ — резко подскочить, взлететь (о спросе, цене)",
+      "icon": "⚡",
+      "examples": [
+        { "en": "There are fears of spiking demand in winter.", "ru": "Есть опасения резкого роста спроса зимой." }
+      ]
+    },
+    {
+      "id": "dg24",
+      "term": "to oversee",
+      "definition": "/ˌoʊvərˈsiː/ — курировать, осуществлять надзор за",
+      "icon": "👁️",
+      "examples": [
+        { "en": "The Coal Authority oversees old mines.", "ru": "Угольное управление осуществляет надзор за старыми шахтами." }
+      ]
+    },
+    {
+      "id": "dg25",
+      "term": "to keep the cap on costs",
+      "definition": "/kiːp ðə kæp ɒn kɒsts/ — удерживать потолок затрат, сдерживать расходы",
+      "icon": "🧢",
+      "examples": [
+        { "en": "This will help to keep the cap on costs going forward.", "ru": "Это поможет сдерживать расходы в дальнейшем." }
+      ]
+    },
+    {
+      "id": "dg26",
+      "term": "going forward",
+      "definition": "/ˈɡoʊɪŋ ˈfɔːrwərd/ — в дальнейшем, впредь",
+      "icon": "➡️",
+      "examples": [
+        { "en": "We expect lower costs going forward.", "ru": "Мы ожидаем более низких затрат в дальнейшем." }
+      ]
+    },
+    {
+      "id": "dg27",
+      "term": "energy efficient",
+      "definition": "/ˈenərdʒi ɪˈfɪʃnt/ — энергоэффективный",
+      "icon": "💡",
+      "examples": [
+        { "en": "The process is four times more energy efficient.", "ru": "Процесс в четыре раза энергоэффективнее." }
+      ]
+    },
+    {
+      "id": "dg28",
+      "term": "low carbon",
+      "definition": "/loʊ ˈkɑːrbən/ — низкоуглеродный",
+      "icon": "🍃",
+      "examples": [
+        { "en": "Over time it gets close to something low carbon.", "ru": "Со временем это приближается к низкоуглеродному варианту." }
+      ]
+    }
+  ]
 }
 ]

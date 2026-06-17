@@ -28,31 +28,7 @@
   </style>
 </head>
 <body>
-  <div id="root">
-    <div style="display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif; padding:20px;">
-      <div style="text-align:center; max-width:320px;">
-        <div style="font-size:64px; margin-bottom:20px;">📚</div>
-        <div style="color:#1f2937; font-size:20px; font-weight:700;">QuizFlip</div>
-        <div style="color:#9CA3AF; font-size:14px; margin-top:10px;">Loading… (первая загрузка может занять 10–15 секунд)</div>
-      </div>
-    </div>
-  </div>
-  <div id="error-display" style="display:none; position:fixed; top:0; left:0; right:0; padding:16px; background:#FEE2E2; color:#991B1B; font-family:ui-monospace,monospace; font-size:13px; z-index:9999; white-space:pre-wrap; word-wrap:break-word; max-height:50vh; overflow-y:auto; border-bottom:2px solid #DC2626;"></div>
-  <script>
-    (function() {
-      var show = function(text) {
-        var d = document.getElementById('error-display');
-        if (d) { d.style.display = 'block'; d.textContent = text; }
-      };
-      window.addEventListener('error', function(e) {
-        show('JS Error: ' + (e.message || 'unknown') + '\nin: ' + (e.filename || '?') + ':' + (e.lineno || '?') + ':' + (e.colno || '?'));
-      });
-      window.addEventListener('unhandledrejection', function(e) {
-        var r = e.reason;
-        show('Promise rejection: ' + (r && r.message ? r.message : String(r)));
-      });
-    })();
-  </script>
+  <div id="root"></div>
 
   <script type="text/babel" data-presets="react">
     const { useState, useEffect, useMemo, useRef } = React;
@@ -214,25 +190,6 @@
     };
     const persistDecks = (decks) => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(decks)); } catch (e) { console.error(e); } };
 
-    /* ──────────── Activity tracking (for calendar) ──────────── */
-    const ACTIVITY_KEY = 'quizflip:activity:v1';
-    const dateKey = (d = new Date()) => {
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      return `${y}-${m}-${day}`;
-    };
-    const loadActivity = () => {
-      try { return JSON.parse(localStorage.getItem(ACTIVITY_KEY) || '{}') || {}; }
-      catch { return {}; }
-    };
-    const recordActivity = () => {
-      const data = loadActivity();
-      const k = dateKey();
-      data[k] = (data[k] || 0) + 1;
-      try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify(data)); } catch {}
-    };
-
     async function fetchOfficialDecks() {
       try {
         const res = await fetch(`${OFFICIAL_DECKS_URL}?t=${Date.now()}`, { cache: 'no-store' });
@@ -362,89 +319,9 @@
           )}
           {view === 'flashcards' && currentDeck && <FlashcardsMode deck={currentDeck} onExit={() => setView('deck')} />}
           {view === 'review' && currentDeck && <ReviewMode deck={currentDeck} mode={reviewMode} onExit={() => setView('deck')} onUpdateCards={(updates) => updateCardsInDeck(currentDeck.id, updates)} />}
-          {view === 'listen' && currentDeck && <ListenMode deck={currentDeck} onExit={() => setView('deck')} onUpdateCards={(updates) => updateCardsInDeck(currentDeck.id, updates)} />}
           {view === 'test' && currentDeck && <TestMode deck={currentDeck} onExit={() => setView('deck')} onUpdateCards={(updates) => updateCardsInDeck(currentDeck.id, updates)} />}
           {view === 'match' && currentDeck && <MatchMode deck={currentDeck} onExit={() => setView('deck')} />}
           {editorDeck && <DeckEditor deck={editorDeck} onClose={() => setEditorDeck(null)} onSave={(d) => { saveDeck(d); setEditorDeck(null); }} />}
-        </div>
-      );
-    }
-
-    /* ──────────── Stats components ──────────── */
-    function BoxDistribution({ deck }) {
-      const counts = [0,0,0,0,0,0];
-      for (const c of deck.cards) {
-        const b = Math.min(c.box ?? 0, 5);
-        counts[b]++;
-      }
-      const max = Math.max(...counts, 1);
-      const labels = ['New', '1 day', '3 days', '7 days', '14 days', '30 days'];
-      const colors = ['bg-stone-300', 'bg-indigo-200', 'bg-indigo-400', 'bg-indigo-500', 'bg-indigo-600', 'bg-emerald-500'];
-      return (
-        <div className="bg-white rounded-3xl p-6 border border-stone-200 mb-8 animate-slide-up">
-          <h3 className="font-display text-lg font-bold text-stone-900 mb-4">Card distribution</h3>
-          <div className="space-y-2">
-            {counts.map((n, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="w-20 text-sm text-stone-600 font-medium">{labels[i]}</div>
-                <div className="flex-1 h-6 bg-stone-100 rounded-full overflow-hidden">
-                  <div className={`h-full ${colors[i]} transition-all`} style={{ width: `${(n / max) * 100}%` }} />
-                </div>
-                <div className="w-10 text-sm text-stone-700 font-semibold text-right">{n}{i === 5 && n > 0 ? ' ✓' : ''}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    function ActivityCalendar() {
-      const activity = useMemo(() => loadActivity(), []);
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = now.getMonth();
-      const monthNames = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-      const dayNames = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
-
-      const firstDay = new Date(year, month, 1);
-      const lastDay = new Date(year, month + 1, 0);
-      const startWeekday = (firstDay.getDay() + 6) % 7;
-      const daysInMonth = lastDay.getDate();
-      const todayKey = dateKey(now);
-
-      const monthPrefix = `${year}-${String(month + 1).padStart(2, '0')}`;
-      const activeCount = Object.keys(activity).filter(k => k.startsWith(monthPrefix)).length;
-
-      const cells = [];
-      for (let i = 0; i < startWeekday; i++) cells.push(null);
-      for (let d = 1; d <= daysInMonth; d++) cells.push(d);
-
-      return (
-        <div className="bg-white rounded-3xl p-6 border border-stone-200 mb-8 animate-slide-up">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-lg font-bold text-stone-900">{monthNames[month]} {year}</h3>
-            <div className="text-sm text-stone-500">
-              <span className="text-emerald-600 font-semibold">{activeCount}</span> {activeCount === 1 ? 'день' : activeCount > 1 && activeCount < 5 ? 'дня' : 'дней'} из {daysInMonth}
-            </div>
-          </div>
-          <div className="grid grid-cols-7 gap-1.5">
-            {dayNames.map(d => (
-              <div key={d} className="text-center text-xs font-bold text-stone-400 uppercase pb-1">{d}</div>
-            ))}
-            {cells.map((d, i) => {
-              if (d === null) return <div key={`e${i}`} />;
-              const k = `${monthPrefix}-${String(d).padStart(2, '0')}`;
-              const isActive = !!activity[k];
-              const isToday = k === todayKey;
-              return (
-                <div key={k} className="aspect-square flex items-center justify-center">
-                  <div className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold ${isActive ? 'bg-emerald-500 text-white' : 'text-stone-500'} ${isToday ? 'ring-2 ring-stone-900 ring-offset-1' : ''}`}>
-                    {d}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       );
     }
@@ -477,8 +354,6 @@
               </button>
             </div>
           </header>
-
-          <ActivityCalendar />
 
           {decks.length === 0 ? (
             <div className="border-2 border-dashed border-stone-300 rounded-3xl p-16 text-center">
@@ -564,7 +439,6 @@
       const s = deckStats(deck);
       const modes = [
         { id: 'review', name: 'Review', icon: Brain, desc: s.due > 0 ? `${s.due} due now` : 'All caught up', color: 'bg-emerald-100 text-emerald-700', avail: deck.cards.length >= 1, primary: s.due > 0 },
-        { id: 'listen', name: 'Listen', icon: Volume2, desc: 'Audio → translate', color: 'bg-amber-100 text-amber-700', avail: deck.cards.length >= 1 },
         { id: 'flashcards', name: 'Flashcards', icon: Layers, desc: 'Browse freely', color: 'bg-indigo-100 text-indigo-700', avail: deck.cards.length >= 1 },
         { id: 'test', name: 'Test', icon: ClipboardCheck, desc: 'Multiple choice', color: 'bg-amber-100 text-amber-800', avail: deck.cards.length >= 4 },
         { id: 'match', name: 'Match', icon: Zap, desc: 'Pair them fast', color: 'bg-rose-100 text-rose-700', avail: deck.cards.length >= 2 },
@@ -609,10 +483,8 @@
             </div>
           </div>
 
-          <BoxDistribution deck={deck} />
-
           <h2 className="font-display text-xl font-bold text-stone-900 mb-4">Choose a mode</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {modes.map((m, i) => {
               const I = m.icon;
               return (
@@ -904,7 +776,6 @@
 
       const mark = (knew) => {
         if (!card) return;
-        recordActivity();
         const updated = updateCardProgress(card, knew);
         setPendingUpdates((p) => [...p.filter((c) => c.id !== updated.id), updated]);
         setFlipped(false);
@@ -915,7 +786,8 @@
           } else {
             setQueue((q) => {
               const [first, ...rest] = q;
-              return [...rest, first];
+              const insertAt = Math.min(rest.length, 2 + Math.floor(Math.random() * 2));
+              return [...rest.slice(0, insertAt), first, ...rest.slice(insertAt)];
             });
           }
         }, 150);
@@ -1022,139 +894,6 @@
     }
 
     /* ──────────── Test Mode ──────────── */
-    /* ──────────── Listen Mode (audio-first) ──────────── */
-    function ListenMode({ deck, onExit, onUpdateCards }) {
-      const filterCards = () => {
-        const now = Date.now();
-        const due = deck.cards.filter((c) => isDue(c, now));
-        return due.length ? due : deck.cards;
-      };
-      const [queue, setQueue] = useState(() => shuffle(filterCards()));
-      const [pendingUpdates, setPendingUpdates] = useState([]);
-      const [flipped, setFlipped] = useState(false);
-      const [doneCount, setDoneCount] = useState(0);
-      const pendingRef = useRef([]);
-      pendingRef.current = pendingUpdates;
-      const card = queue[0];
-
-      useEffect(() => {
-        if (!card) return;
-        const t = setTimeout(() => speak(card.term, deck.termLang), 250);
-        return () => clearTimeout(t);
-      }, [card?.id, deck.termLang]);
-
-      useEffect(() => {
-        return () => { if (pendingRef.current.length) onUpdateCards(pendingRef.current); };
-      }, []);
-
-      const mark = (knew) => {
-        if (!card) return;
-        recordActivity();
-        const updated = updateCardProgress(card, knew);
-        setPendingUpdates((p) => [...p.filter((c) => c.id !== updated.id), updated]);
-        setFlipped(false);
-        setTimeout(() => {
-          if (knew) {
-            setQueue((q) => q.slice(1));
-            setDoneCount((d) => d + 1);
-          } else {
-            setQueue((q) => {
-              const [first, ...rest] = q;
-              return [...rest, first];
-            });
-          }
-        }, 150);
-      };
-
-      const replay = (e) => {
-        if (e) e.stopPropagation();
-        if (card) speak(card.term, deck.termLang);
-      };
-
-      const handleExit = () => { if (pendingUpdates.length) onUpdateCards(pendingUpdates); onExit(); };
-
-      if (queue.length === 0) {
-        return (
-          <div className="max-w-3xl mx-auto px-6 py-8 min-h-screen flex flex-col">
-            <ModeHeader title={deck.title} subtitle="Listen" onExit={handleExit} />
-            <div className="flex-1 flex flex-col items-center justify-center text-center animate-pop">
-              <div className="inline-flex p-5 rounded-full bg-amber-100 text-amber-700 mb-6"><Trophy size={48} /></div>
-              <div className="font-display text-5xl md:text-6xl font-extrabold text-stone-900 mb-2">Session complete</div>
-              <div className="text-stone-500 mb-2 text-lg">{doneCount} {doneCount === 1 ? 'card' : 'cards'} listened to.</div>
-              <div className="text-stone-500 mb-10 text-sm">Progress saved.</div>
-              <button onClick={handleExit} className="bg-stone-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-600 transition-colors">Back to deck</button>
-            </div>
-          </div>
-        );
-      }
-
-      return (
-        <div className="max-w-3xl mx-auto px-6 py-8 min-h-screen flex flex-col">
-          <ModeHeader title={deck.title} subtitle="Listen" onExit={handleExit} />
-          <div className="mb-6">
-            <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
-              <span>Listened {doneCount}</span>
-              <span>Remaining {queue.length}</span>
-            </div>
-            <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full bg-amber-500 transition-all duration-500" style={{ width: `${doneCount > 0 ? (doneCount / (doneCount + queue.length)) * 100 : 0}%` }} />
-            </div>
-          </div>
-          <div className="flex-1 flex flex-col items-center justify-center">
-            {card && (
-              <>
-                <div className="text-xs text-stone-500 mb-3 font-medium uppercase tracking-wider">
-                  Listen → translate in your head → flip to check
-                </div>
-                <div className="flip-card w-full aspect-[3/2] max-w-2xl cursor-pointer" onClick={() => setFlipped((f) => !f)}>
-                  <div className={`flip-inner ${flipped ? 'flipped' : ''}`}>
-                    <div className="flip-face bg-white rounded-3xl border-2 border-stone-200 shadow-lg p-6 md:p-8 flex flex-col items-center justify-center text-center overflow-y-auto">
-                      {card.icon && <div className="text-6xl md:text-7xl mb-4 leading-none">{card.icon}</div>}
-                      <div className="text-xs uppercase tracking-widest text-stone-400 mb-4 font-bold">Listen</div>
-                      <button onClick={replay} className="p-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors shadow-lg" title="Replay">
-                        <Volume2 size={36} />
-                      </button>
-                      <div className="text-sm text-stone-500 mt-5 max-w-xs">Translate in your head, then tap card to check</div>
-                      <div className="absolute bottom-3 text-xs text-stone-400">Click card to see translation</div>
-                    </div>
-                    <div className="flip-face flip-back bg-stone-900 rounded-3xl shadow-lg p-6 md:p-8 flex flex-col items-center justify-center text-center overflow-y-auto">
-                      {card.icon && <div className="text-4xl md:text-5xl mb-2 leading-none">{card.icon}</div>}
-                      <div className="font-display text-xl md:text-2xl font-bold text-white leading-tight">{card.term}</div>
-                      <Transcription definition={card.definition} />
-                      <div className="font-display text-2xl md:text-3xl text-emerald-300 font-bold leading-tight mt-2">{stripIpa(card.definition)}</div>
-                      {Array.isArray(card.examples) && card.examples.length > 0 && (
-                        <div className="mt-4 space-y-2.5 text-sm md:text-base max-w-md w-full">
-                          {card.examples.map((ex, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <button onClick={(e) => { e.stopPropagation(); speak(ex.en, deck.termLang); }} className="flex-shrink-0 p-1.5 mt-0.5 bg-stone-700 hover:bg-indigo-600 rounded-full text-white transition-colors" title="Play example">
-                                <Volume2 size={12} />
-                              </button>
-                              <div className="text-left flex-1">
-                                <div className="italic text-stone-300">{ex.en}</div>
-                                <div className="text-stone-400 mt-0.5">{ex.ru}</div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 mt-8">
-                  <button onClick={() => mark(false)} className="px-6 py-3 rounded-full bg-white border-2 border-rose-200 text-rose-600 font-semibold hover:bg-rose-50 transition-all flex items-center gap-2">
-                    <RotateCw size={16} /> Don't know
-                  </button>
-                  <button onClick={() => mark(true)} className="px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-all flex items-center gap-2">
-                    <Check size={16} /> I know it
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      );
-    }
-
     function TestMode({ deck, onExit, onUpdateCards }) {
       const questions = useMemo(() => {
         const cards = shuffle(deck.cards);
